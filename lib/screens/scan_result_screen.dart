@@ -50,7 +50,7 @@ class _ScanResultScreenState extends State<ScanResultScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Analysis Results'),
+        title: const Text('Identification Results'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),
@@ -78,7 +78,7 @@ class _ScanResultScreenState extends State<ScanResultScreen> {
                     children: [
                       CircularProgressIndicator(),
                       SizedBox(height: 16),
-                      Text('Analyzing tensor vectors...', style: TextStyle(fontWeight: FontWeight.bold)),
+                      Text('Identifying plant...', style: TextStyle(fontWeight: FontWeight.bold)),
                     ],
                   ),
                 ),
@@ -96,30 +96,31 @@ class _ScanResultScreenState extends State<ScanResultScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Raw Tensor Analysis',
+          'Identification Results',
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 16),
         _buildResultCard(
-          'Predicted Label',
+          'Plant Species',
           _resultInfo!.label,
-          Icons.category,
-          Colors.blueGrey,
+          Icons.local_florist,
+          Colors.green,
         ),
         const SizedBox(height: 12),
         _buildResultCard(
-          'Raw Class Index',
-          '${_resultInfo!.predictedIndex} / 47',
+          'Model Class',
+          'Class ${_resultInfo!.predictedIndex}',
           Icons.numbers,
-          Colors.orange,
+          Colors.deepPurple,
         ),
         const SizedBox(height: 12),
         _buildResultCard(
-          'Confidence Rating',
-          '${(_resultInfo!.confidence * 100).toStringAsFixed(2)}%',
-          Icons.bar_chart,
-          _resultInfo!.confidence > 0.5 ? Colors.green : Colors.red,
+          'Match Confidence',
+          '${(_resultInfo!.confidence * 100).toStringAsFixed(1)}%',
+          Icons.verified,
+          _resultInfo!.confidence > 0.5 ? Colors.green : Colors.orange,
         ),
+        const SizedBox(height: 12),
       ],
     );
   }

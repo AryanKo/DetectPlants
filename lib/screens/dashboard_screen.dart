@@ -36,7 +36,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Plant Analytics'),
+        title: const Text('Plant Identifier'),
         centerTitle: true,
       ),
       body: Center(
@@ -49,13 +49,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
               const Icon(Icons.eco, size: 100, color: Colors.green),
               const SizedBox(height: 24),
               const Text(
-                'Detect Plant Diseases',
+                'Identify Your Plants',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               const Text(
-                'Capture or upload an image of a plant leaf to analyze its health instantly.',
+                'Capture or upload an image of a plant to identify its species instantly.',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
